@@ -1,0 +1,17 @@
+{% extends 'base_a.html' %}
+{% block content %}
+
+<center>
+<h2>View Sales Dataset</h2>
+<br>
+<table id="tab" width="60%">
+<tr><th>Sno.<th>Year<th>Month<th>Grand Total
+{% for d in data %}
+
+<tr><td>{{forloop.counter}}<td>{{d.year}}<td>{{d.month}}<td>{{d.tamt}}
+{% endfor %}
+
+</table>
+
+
+{% endblock %}

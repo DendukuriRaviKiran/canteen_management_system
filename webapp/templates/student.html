@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<font size="+1" color="red">
+</font>
+<center>
+<font size="+1" color="red">{{msg}}
+</font>
+<h1><strong>Student Login</strong></h2>
+<br>
+<br><form method="post" action="/stdloginaction/">
+	{% csrf_token %} 
+<table  width="50%" cellspacing="10">
+                    
+                    <tr><td><input class="form-control"  type="email" name="mail" placeholder="Email, example@example.com" required="required" onblur="validate1()"></input><br></td></tr>
+                    <tr><td><input class="form-control"  type="Password" name="pwd" placeholder="Password" required="required" onblur="validate5()"></input><br></td></tr>
+                    <tr><td><br><input type="submit" class="form-control" value="Login">
+                        
+                
+</table>
+</form>
+
+{% endblock %}

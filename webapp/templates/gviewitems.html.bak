@@ -1,0 +1,81 @@
+{% extends 'base_g.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% static "images" as baseUrl %}
+
+<div class="products">
+		<div class="container">
+			<div class="col-md-4 products-left">
+				<div class="categories">
+					<h2>Categories</h2>
+					<ul class="cate">
+						{% for d in cat %}
+
+							
+
+<li><a href="{% url 'viewcatitems' cat=d.catname%}">
+<i class="fa fa-arrow-right" aria-hidden="true"></i>
+{{d}}</a></li>
+
+
+						{% endfor %}	
+					</ul>
+				</div>																																												
+			</div>
+			<div class="col-md-8 products-right">
+				{% for d in item %}
+
+				<form action="/gaddcart/" method="post">
+					{% csrf_token %} 
+					<div class="col-md-4 top_brand_left">
+						<div class="hover14 column">
+							<div class="agile_top_brand_left_grid">
+								<div class="agile_top_brand_left_grid1">
+									<figure>
+										<div class="snipcart-item block">
+											<div class="snipcart-thumb">
+
+						<img title=" " alt=" " src="{{baseUrl}}/{{d.photo}}">		
+						<p><font size="+1" color="{{d.itemtype}}"><b>{{d.itemname}}</b></font></p>
+						<h4>{{d.itemcost}} Rs/- </h4>
+						
+<br><br>
+						<h4>Rating: {{d.ratingval}} <br>
+						<input type="range" min="1" max="5" value="{{d.ratingval}}" readonly name=""> </h4>
+
+							
+						<p><input type="number" name="tot" placeholder="How many" required min=1 
+							max="100000000">
+											</div>
+											
+						<input type="hidden" name="name" value="{{d.itemname}}">
+						<input type="hidden" name="id" value="{{d.id}}">
+						<input type="hidden" name="cost" value="{{d.itemcost}}">
+						
+
+													<div class="snipcart-details top_brand_home_details">
+														<input type="submit" name="submit" value="Add to cart" class="button">
+
+												</form>
+
+											</div>
+										</div>
+									</figure>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+						<div class="clearfix"> </div>
+				</div>
+				
+			</div>
+
+
+			<div class="clearfix"> </div>
+		</div>		</div>
+	</div>
+{% endblock %}

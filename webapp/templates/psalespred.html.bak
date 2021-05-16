@@ -1,0 +1,41 @@
+{% extends 'base_a.html' %}
+{% block content %}
+
+
+
+<center>
+<font size="+1" color="red">{{msg}}
+<br>
+<font size="" color=""><h2>Monthly Sales Prediction</h2><br></font>
+<form method="post" action="/psalespredview/">
+	{% csrf_token %} 
+	<table id="tab" width="60%">
+	<tr>
+
+
+		<td>
+
+		<select name="prod">
+
+
+						{% for d in data %}
+			<option value="{{d.prod}}">{{d}}
+
+								{% endfor %}	
+		</select>
+
+
+
+
+	<tr>
+
+
+		<td><input type="month" required name="month"  class="form-control">
+		<tr><td><input type="submit" value="Predict" class="form-control"></td>
+	</tr>
+	</table>
+</form>
+<br><br><br><br><br>	
+
+
+{% endblock %}

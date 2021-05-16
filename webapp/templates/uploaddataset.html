@@ -1,0 +1,33 @@
+{% extends 'base_a.html' %}
+{% block content %}
+
+
+
+<center>
+<font size="+1" color="red">{{msg}}
+<br>
+<font size="" color=""><h2>Monthly Dataset Upload:</h2></font>
+<form method="post" action="/xlupload/">
+	{% csrf_token %} 
+	<table id="tab" width="60%">
+	<tr>
+		<td><input type="file" class="form-control" name="file" required accept=".xlsx">
+		<br><input type="submit" value="Upload" class="form-control"></td>
+	</tr>
+	</table>
+</form>
+<br><br><br>
+<font size="" color=""><h2>Item Dataset Upload:</h2></font>
+<form method="post" action="/ixlupload/">
+	{% csrf_token %} 
+	<table id="tab" width="60%">
+	<tr>
+		<td><input type="file" class="form-control" name="file" required accept=".xlsx">
+		<br><input type="submit" value="Upload" class="form-control"></td>
+	</tr>
+	</table>
+</form>
+<br><br><br><br><br>	
+
+
+{% endblock %}

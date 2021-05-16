@@ -1,0 +1,49 @@
+{% extends 'base_a.html' %}
+
+{% load static %}
+
+{% block content %}
+			<div class="checkout-right">
+				<table class="timetable_sub">
+					<thead>
+						<tr>
+							<th>SL No.</th>	
+							<th>Product Name</th>
+							<th>Product Cost</th>
+							<th>Quantity</th>
+					
+							<th>Price</th>
+						</tr>
+					</thead>
+
+
+						{% for d in data %}
+
+					<tr class="rem1">
+						<td class="invert">{{ forloop.counter }}</td>
+						<td class="invert">{{d.itemname}}</td>
+						<td class="invert">{{d.itemcost}}</td>
+						<td class="invert">{{d.tot}}</td>
+						<td class="invert">{{d.totcost}}</td>
+							
+
+						
+						{% endfor %}	
+
+</table>
+<br><br>
+<center><h3>Total Cost : {{totcost}}</h3></center>
+
+<br><br>
+				<form method="get" action="/closeotp/">
+					<input type="hidden" name="otp" value="{{otp}}" >
+					
+					<input type="submit" class="form-control" value="Order Close">
+				</form>
+			<div class="clearfix"> </div>
+			</div>
+		</div>
+
+</div>
+
+{% endblock %}

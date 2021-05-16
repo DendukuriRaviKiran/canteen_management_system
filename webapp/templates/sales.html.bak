@@ -1,0 +1,24 @@
+{% extends 'base_a.html' %}
+
+{% load static %}
+
+{% block content %}
+			
+			<center>
+			
+			<h1>
+			<a href="/uploaddataset">Upload Sales Dataset</a><br><br>
+			<a href="/viewdataset">View Monthly Sales</a><br><br>
+			<a href="/msales">Monthly Sales Prediction</a><br><br>
+			<a href="/psales">Product Sales</a><br><br>
+			<a href="/psales">Product Sales Prediction</a><br><br>
+			
+			
+			
+			
+			</h1>
+			
+			
+			</center>
+
+{% endblock %}

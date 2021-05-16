@@ -1,0 +1,58 @@
+{% extends 'base_a.html' %}
+{% block content %}
+
+<h1>Add Items</h1>
+<!-- <br><br>
+<table id="tab" width="60%">
+
+<tr><th>Item Id<th>Category<th>Item Name
+<th>Item Type
+<th>Item Cost
+
+
+
+{% for d in item %}
+
+<tr><td>{{d.id}}<td>{{d.catname}}<td>{{d.itemname}}<td>{{d.itemtype}}<td>{{d.itemcost}}
+
+{% endfor %}
+</table>
+ -->
+
+<br><form method="post" action="/additemaction/" enctype="multipart/form-data">
+	{% csrf_token %} 
+<center>
+<table id="tab"  width="60%" cellspacing="10">
+<tr><th>Add Items
+<tr><td>
+<select name="cat" class="form-control" >
+{% for d in cat %}
+	<option value="{{d.catname}}">{{d.catname}}
+{% endfor %}
+</select>
+<tr><td>
+
+<input class="form-control"  type="text" name="name" placeholder="Enter Item Name " required="required" >
+<tr><td>
+
+<input class="form-control"  type="number" name="cost" placeholder="Enter Cost " required="required" >
+<tr><td>
+
+<select name="type">
+	<option value="Green" selected>Veg
+	<option value="Red">NonVeg
+</select>
+<tr><td>
+Upload Image
+<input class="form-control"  type="file" name="itemimage" placeholder="Upload Image" accept="image/*" required="required" >
+
+</input><br></td></tr>
+
+<tr><td><br><input type="submit" class="form-control" value="Add">
+                
+</table>
+</form>
+
+
+
+{% endblock %}

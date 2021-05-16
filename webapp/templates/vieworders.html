@@ -1,0 +1,45 @@
+{% extends 'base_a.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<center><h2></h5></center>
+				<table width="50%" id="tab">
+				<tr>
+					<th>
+				<h4>Enter OTP:</h1>
+				<tr><td>
+				<form method="post" action="/searchotp/">
+					{% csrf_token %} 
+					<input required class="form-control" type="text" name="otp">
+				</form></td>
+				<tr><td><input type="submit" value="Search" class="form-control" >
+					
+				</tr>
+				</table><br>
+				<center>
+						<table width="60%" id="tab">
+						<tr><th ><h4>View New Orders</h4><th>
+					
+						{% for d in data %}
+
+
+						<tr><td>
+						Order OTP: {{d.otp}} <td><center><a href="{% url 'viewotp' op=d.otp %}">View</a></center>
+
+						
+						{% endfor %}
+						
+						
+					</table>	
+					</ul>
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+
+</div>
+
+{% endblock %}
